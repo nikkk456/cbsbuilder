@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/cbsbuilder/static/css/main.ea6d1000.css",
+    "main.js": "/cbsbuilder/static/js/main.767fab07.js",
+    "static/js/453.ae37437d.chunk.js": "/cbsbuilder/static/js/453.ae37437d.chunk.js",
+    "static/media/floor plan.png": "/cbsbuilder/static/media/floor plan.5e64bc4a0cebf074387d.png",
+    "static/media/floor plan2.png": "/cbsbuilder/static/media/floor plan2.1a3814cfcd9ec0a3d2c3.png",
+    "index.html": "/cbsbuilder/index.html",
+    "main.ea6d1000.css.map": "/cbsbuilder/static/css/main.ea6d1000.css.map",
+    "main.767fab07.js.map": "/cbsbuilder/static/js/main.767fab07.js.map",
+    "453.ae37437d.chunk.js.map": "/cbsbuilder/static/js/453.ae37437d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ea6d1000.css",
+    "static/js/main.767fab07.js"
+  ]
+}
