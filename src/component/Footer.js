@@ -28,7 +28,7 @@ const Footer = () => {
             <h3>Find Us</h3>
           </div>
           <div className='row'>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d224633.65547854218!2d77.091676!3d28.392062!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d223bc0000001%3A0xf099c45e4463aa4c!2sAnant%20Raj%20Estate%20Plots!5e0!3m2!1sen!2sus!4v1708538970431!5m2!1sen!2sus" width="400" height="300" style={{ border: "0" }} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d224633.65547854218!2d77.091676!3d28.392062!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d223bc0000001%3A0xf099c45e4463aa4c!2sAnant%20Raj%20Estate%20Plots!5e0!3m2!1sen!2sus!4v1708538970431!5m2!1sen!2sus" width="400" height="300" style={{ border: "0" }} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade" title='cbsMap'></iframe>
           </div>
         </div>
         <div className='col-md-1'></div>

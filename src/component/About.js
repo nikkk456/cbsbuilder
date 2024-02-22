@@ -7,7 +7,7 @@ const About = () => {
         <h2 className='text-center'><span style={{ width: "10%", borderBottom: "2px double #3a5c5c" }}>About Us</span></h2>
       </div>
       <div className='row'>
-        <div className='col-md-5'><img src='./Aboutus.png' alt='cbs image' style={{ width: "100%" }}></img></div>
+        <div className='col-md-5'><img src='./Aboutus.png' alt='cbs_building' style={{ width: "100%" }}></img></div>
         <div className='col-md-7 '>
           <div className='container'>
             <div className='row'><p>
