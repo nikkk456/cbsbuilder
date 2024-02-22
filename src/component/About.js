@@ -36,33 +36,33 @@ const About = () => {
 
 
       {/* <!-- Modal --> */}
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header" style={{ backgroundColor: "#3a5c5c", color: "white" }}>
-              <h1 class="modal-title fs-5" id="exampleModalLabel">Get Best Offer</h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header" style={{ backgroundColor: "#3a5c5c", color: "white" }}>
+              <h1 className="modal-title fs-5" id="exampleModalLabel">Get Best Offer</h1>
+              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div className="modal-body">
               <form >
                 <div className="mb-3">
-                  <label for="exampleInputPassword1" className="form-label">Your Full Name</label>
+                  <label htmlFor="exampleInputPassword1" className="form-label">Your Full Name</label>
                   <input type="text" className="form-control" id='name' />
                 </div>
                 <div className="mb-3">
-                  <label for="exampleInputEmail1" className="form-label">Email address</label>
+                  <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
                   <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
                   <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
                 </div>
                 <div className="mb-3">
-                  <label for="exampleInputPassword1" className="form-label" >Your Phone Number</label>
+                  <label htmlFor="exampleInputPassword1" className="form-label" >Your Phone Number</label>
                   <input type="number" className="form-control" id="exampleInputPassword1" />
                 </div>
 
               </form>
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn buttoncbs" style={{ backgroundColor: "red", width: "70px" }} data-bs-dismiss="modal">Close</button>
+            <div className="modal-footer">
+              <button type="button" className="btn buttoncbs" style={{ backgroundColor: "red", width: "70px" }} data-bs-dismiss="modal">Close</button>
               <button type="submit" className="btn buttoncbs" style={{ width: "200px" }}>Request a Call Back</button>
             </div>
           </div>
