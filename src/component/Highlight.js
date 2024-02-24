@@ -4,7 +4,7 @@ const Highlight = () => {
     return (
         <div className='container mt-3'>
             <div className='row'>
-                <div className='col-md-5'>
+                <div className='col-md-5 mt-3'>
                     <img src='./Slide15.jpg' alt='luxury floor' style={{width:"100%", borderRadius:"20px"}}></img>
                 </div>
                 <div className='col-md-7'>

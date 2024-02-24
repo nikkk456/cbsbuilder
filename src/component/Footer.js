@@ -1,8 +1,32 @@
-import React from 'react'
+import React, { useState } from 'react'
+import axios from 'axios';
 
 const Footer = () => {
+  const [loader, setLoader] = useState(false);
+  const [input, setinput] = useState({});
+  const formvalue = (e) => {
+    setinput({ ...input, [e.target.name]: e.target.value });
+  }
+
+  const submitform = (event) => {
+    event.preventDefault();
+    const data_to = { name: input.name, email: input.email, phone: input.phone, query: input.query };
+    console.log(data_to.name);
+    if (input.name === undefined || input.phone === undefined || input.email === undefined) {
+      alert("Kindly fill all the details");
+    } else {
+      // console.log("hel");
+      setLoader(true);
+      axios.post("http://localhost:0080/cbsbuilderapi/leads.php", data_to).then((response) => {
+        alert(response.data.result);
+        setLoader(false);
+      });
+
+    }
+  }
+
   return (
-    <div className='container' style={{backgroundColor:"#3a5c5c", color:"white", maxWidth:"none", padding:"30px"}}>
+    <div className='container' style={{ backgroundColor: "#3a5c5c", color: "white", maxWidth: "none", padding: "30px" }}>
       <div className='row'>
         <div className='col-md-6'>
           <div className='row'>
@@ -34,33 +58,39 @@ const Footer = () => {
         <div className='col-md-1'></div>
         <div className='col-md-5'>
           <div className='row mt-3'>
-            <form style={{  borderRadius: "10px", padding: "15px", boxShadow:"#c7c0c0 5px 3px 8px 2px", backgroundColor:"white", color:"black" }}>
-              <div className='mb-3 text-center'>
-                <h3>Send us a message</h3>
-                <p>Ask your queries here!</p>
+            {loader ? <div className='d-flex justify-content-center align-items-center'>
+              <div class="spinner-grow" role="status">
+                <span class="visually-hidden">Loading...</span>
               </div>
-              <div className="mb-3">
-                <label htmlFor="exampleInputPassword1" className="form-label">Your Full Name</label>
-                <input type="text" className="form-control" id='name' />
-              </div>
-              <div className="mb-3">
-                <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
-                <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-                <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
-              </div>
-              <div className="mb-3">
-                <label htmlFor="exampleInputPassword1" className="form-label" >Your Phone Number</label>
-                <input type="number" className="form-control" id="exampleInputPassword1" />
-              </div>
-              <div className='mb-3'>
-                <label htmlFor="exampleInputPassword1" className="form-label">Enter Your Query</label>
-                <textarea className="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
-              </div>
-              <button type="submit" className="btn buttoncbs" style={{width:"100px"}}>Send Query</button>
-              <button type="button" className="btn buttoncbs mx-2" style={{width:"150px"}}>Book Free Site Visit</button>
-            </form>
+            </div> :
+              <form style={{ borderRadius: "10px", padding: "15px", boxShadow: "#c7c0c0 5px 3px 8px 2px", backgroundColor: "white", color: "black" }}>
+                <div className='mb-3 text-center'>
+                  <h3>Send us a message</h3>
+                  <p>Ask your queries here!</p>
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="exampleInputPassword1" className="form-label">Your Full Name</label>
+                  <input type="text" onChange={formvalue} className="form-control" id='name' name='name' />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
+                  <input type="email" name='email' onChange={formvalue} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                  <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="exampleInputPassword1" className="form-label" >Your Phone Number</label>
+                  <input type="number" name='phone' onChange={formvalue} className="form-control" id="exampleInputPassword1" />
+                </div>
+                <div className='mb-3'>
+                  <label htmlFor="exampleInputPassword1" className="form-label">Enter Your Query</label>
+                  <textarea className="form-control" onChange={formvalue} name='query' placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                </div>
+                <button type="submit" className="btn buttoncbs" onClick={submitform} style={{ width: "100px" }}>Send Query</button>
+                <button type="button" className="btn buttoncbs mx-2" onClick={submitform} style={{ width: "150px" }}>Book Free Site Visit</button>
+              </form>}
+
           </div>
-                  
+
         </div>
       </div>
     </div>

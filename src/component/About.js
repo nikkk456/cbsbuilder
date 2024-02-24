@@ -1,6 +1,32 @@
-import React from 'react'
+import React, { useState } from 'react'
+import axios from 'axios';
+
 
 const About = () => {
+  const [loader, setLoader] = useState(false);
+  const [input, setinput] = useState({});
+  const formvalue = (e) => {
+    setinput({ ...input, [e.target.name]: e.target.value });
+  }
+
+  const submitform = (event) => {
+    event.preventDefault();
+    const data_to = { name: input.name, email: input.email, phone: input.phone }
+    console.log(data_to.name);
+    if (input.name === undefined || input.phone === undefined || input.email === undefined) {
+      alert("Kindly fill all the details");
+    } else {
+      setLoader(true);
+      axios.post("http://localhost:0080/cbsbuilderapi/contact_popup.php", data_to).then((response) => {
+        alert(response.data.result);
+        setLoader(false);
+        window.open('https://drive.google.com/file/d/1HJdtWyO19_2PeV17iMyWETKS3iYw_I8M/view?usp=drive_link', '_blank');
+       
+      });
+
+    }
+  }
+
   return (
     <div className='container' id="About">
       <div className='row'>
@@ -44,26 +70,32 @@ const About = () => {
               <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div className="modal-body">
-              <form >
-                <div className="mb-3">
-                  <label htmlFor="exampleInputPassword1" className="form-label">Your Full Name</label>
-                  <input type="text" className="form-control" id='name' />
-                </div>
-                <div className="mb-3">
-                  <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
-                  <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-                  <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
-                </div>
-                <div className="mb-3">
-                  <label htmlFor="exampleInputPassword1" className="form-label" >Your Phone Number</label>
-                  <input type="number" className="form-control" id="exampleInputPassword1" />
-                </div>
+              {
+                loader ? <div className='d-flex justify-content-center align-items-center'>
+                  <div class="spinner-grow" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+                </div> : <form >
+                  <div className="mb-3">
+                    <label htmlFor="exampleInputPassword1" className="form-label">Your Full Name</label>
+                    <input type="text" onChange={formvalue} className="form-control" id='name' name="name" />
+                  </div>
+                  <div className="mb-3">
+                    <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
+                    <input type="email" onChange={formvalue} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" />
+                    <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
+                  </div>
+                  <div className="mb-3">
+                    <label htmlFor="exampleInputPassword1" className="form-label" >Your Phone Number</label>
+                    <input type="number" onChange={formvalue} className="form-control" id="exampleInputPassword1" name="phone" />
+                  </div>
 
-              </form>
+                </form>
+              }
             </div>
             <div className="modal-footer">
               <button type="button" className="btn buttoncbs" style={{ backgroundColor: "red", width: "70px" }} data-bs-dismiss="modal">Close</button>
-              <button type="submit" className="btn buttoncbs" style={{ width: "200px" }}>Request a Call Back</button>
+              <button type="submit" className="btn buttoncbs" onClick={submitform} style={{ width: "200px" }}>Download Brochure</button>
             </div>
           </div>
         </div>

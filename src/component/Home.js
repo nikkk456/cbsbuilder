@@ -17,7 +17,7 @@ const Home = () => {
                             <button className='btn buttoncbs' style={{width:"170px"}} data-bs-toggle="modal" data-bs-target="#exampleModal">Request Call Back</button>
                         </div>
                         <div className='col-md-6 col-6'>
-                            <button className='btn buttoncbs' style={{width:"172px"}} data-bs-toggle="modal" data-bs-target="#exampleModal">Download Brochure</button>
+                            <button className='btn buttoncbs' style={{width:"170px"}} data-bs-toggle="modal" data-bs-target="#exampleModal">Download Brochure</button>
                         </div>
                     </div>
                 </div>
